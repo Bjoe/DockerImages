@@ -15,15 +15,22 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
-      openssh-server cmake git \
-      ninja-build \
+      openssh-server \
+      pkg-config cmake git ninja-build \
       clang-6.0 \
+      libssl-dev \
       unixodbc-dev \
+      apache2-dev \
+      libapr1-dev \
+      zlib1g-dev \
+      libpcre3-dev \
+      libexpat1-dev \
+      libsqlite3-dev \
       mongodb-server \
       redis-server \
-      default-libmysqlclient-dev \
+      libmysqlclient-dev \
       mysql-server \
-      postgresql \
+      postgresql-server-dev-9.6 \
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &
