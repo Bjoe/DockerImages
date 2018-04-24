@@ -1,0 +1,1 @@
+cd ../ubuntu-build && docker build -t ubuntu-build:1.0 . && cd ../ubuntu-build-thirdparty && docker build -t ubuntu-build-thirdparty:1.0 . && cd ../ubuntu-build-android && docker build -t ubuntu-build-android:1.0 .
