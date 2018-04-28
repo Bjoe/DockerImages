@@ -26,8 +26,9 @@ COPY android-sdk-packages ${ANDROID_HOME}
 
 RUN \
   chown -R root.root ${ANDROID_HOME} && \
-  echo -n "Installing SDK packages ....: " && ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=${ANDROID_HOME}/android-sdk-packages
-  
+  echo -n "Installing SDK packages ....: " && ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=${ANDROID_HOME}/android-sdk-packages && \
+  (echo "" | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-24-test -k "system-images;android-24;default;armeabi-v7a")
+
 #EXPOSE 22
 #
 #CMD ["/usr/sbin/sshd", "-D"]

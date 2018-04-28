@@ -37,11 +37,39 @@ services:
         networks:
             - mynet
 
-    pobu:
+    buildthirdparty:
         image: ubuntu-build-thirdparty:1.0
         volumes:
-            - "/home/jboehme/Development/poco:/src"
-            - "/home/jboehme/Build:/build"
+            - "${SRC_DIR}:/src"
+            - "${BUILD_DIR}:/build"
+        entrypoint: /src/docker-build-test-develop.sh
+        depends_on:
+            - mysqldb
+            - redisdb
+            - postgresdb
+            - mongodb
+        networks:
+            - mynet
+
+    buildandroidndk:
+        image: ubuntu-build-android:1.0
+        volumes:
+            - "${SRC_DIR}:/src"
+            - "${BUILD_DIR}:/build"
+        entrypoint: /src/docker-build-test-develop.sh
+        depends_on:
+            - mysqldb
+            - redisdb
+            - postgresdb
+            - mongodb
+        networks:
+            - mynet
+
+    build:
+        image: ubuntu-build:1.0
+        volumes:
+            - "${SRC_DIR}:/src"
+            - "${BUILD_DIR}:/build"
         entrypoint: /src/docker-build-test-develop.sh
         depends_on:
             - mysqldb
