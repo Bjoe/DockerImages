@@ -14,14 +14,8 @@ RUN \
       apache2-dev \
       libapr1-dev \
       zlib1g-dev \
-      libpcre3-dev \
-      libexpat1-dev \
-      libsqlite3-dev \
-      mongodb-server \
-      redis-server \
       libmysqlclient-dev \
-      mysql-server \
-      postgresql-server-dev-9.6 \
+      libpq-dev \
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &

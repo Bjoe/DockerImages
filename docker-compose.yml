@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+    mysqldb:
+        image: mysql:5.6
+        environment:
+            MYSQL_USER: root
+            MYSQL_ROOT_PASSWORD: poco
+            MYSQL_DATABASE: pocotestdb
+        ports:
+            - "3306:3306"
+        networks:
+            - mynet
+
+    redisdb:
+        image: redis:4
+        ports:
+            - "6379:6379"
+        networks:
+            - mynet
+
+    mongodb:
+        image: mongo:3.4
+        ports:
+            - "27017:27017"
+        networks:
+            - mynet
+    
+    postgresdb:
+        image: postgres:9.4
+        environment:
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_DB: postgres
+        ports:
+            - "5432:5432"
+        networks:
+            - mynet
+
+    pobu:
+        image: ubuntu-build-thirdparty:1.0
+        volumes:
+            - "/home/jboehme/Development/poco:/src"
+            - "/home/jboehme/Build:/build"
+        entrypoint: /src/docker-build-test-develop.sh
+        depends_on:
+            - mysqldb
+            - redisdb
+            - postgresdb
+            - mongodb
+        networks:
+            - mynet
+
+networks:
+    mynet:
+        driver: bridge
