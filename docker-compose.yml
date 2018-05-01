@@ -44,7 +44,7 @@ services:
         volumes:
             - "${SRC_DIR}:/src"
             - "${BUILD_DIR}:/build"
-        entrypoint: /src/bin-build/cmake-all-variants-develop.sh
+        entrypoint: /src/bin-build/cmake-all-variants.sh
         depends_on:
             - mysqldb
             - redisdb
