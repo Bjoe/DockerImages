@@ -1,5 +1,7 @@
 version: '2'
 
+# SRC_DIR=.../Src BUILD_DIR=~/Build docker-compose -f DockerImages/docker-compose.yml run buildthirdparty bash
+
 #env_file: env/build.env
 
 services:
@@ -44,7 +46,7 @@ services:
         volumes:
             - "${SRC_DIR}:/src"
             - "${BUILD_DIR}:/build"
-        entrypoint: /src/bin-build/cmake-all-variants.sh
+        entrypoint: /src/bin-build/cmake-all-variants-develop.sh
         depends_on:
             - mysqldb
             - redisdb
