@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
@@ -15,7 +15,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
-      openssh-server sudo \
+      openssh-server sudo python \
       pkg-config make automake autoconf libtool \
       gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf libstdc++-7-dev libc++-dev \
       cmake git ninja-build clang-6.0 clang gcc g++ \
