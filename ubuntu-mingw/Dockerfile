@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \

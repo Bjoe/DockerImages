@@ -4,7 +4,7 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND="noninteractive" \
-  apt-get -y install wget sudo && \
+  apt-get -y install gnupg2 wget sudo && \
   wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 
 COPY llvm.list /etc/apt/sources.list.d/llvm.list
@@ -15,7 +15,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
-      openssh-server sudo python \
+      openssh-server python python3 \
       pkg-config make automake autoconf libtool \
       gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf libstdc++-7-dev libc++-dev \
       cmake git ninja-build clang-6.0 clang gcc g++ \

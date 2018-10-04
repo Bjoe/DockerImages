@@ -1,1 +1,1 @@
-docker build -t ubuntu-build:1.0 ubuntu-build && docker build -t ubuntu-build-thirdparty:1.0 ubuntu-build-thirdparty && docker build -t ubuntu-build-android:1.0 ubuntu-build-android && docker build -t ubuntu-build-mingw:1.0 ubuntu-mingw
+docker build -t ubuntu-build:2.0 ubuntu-build && docker build -t ubuntu-build-thirdparty:2.0 ubuntu-build-thirdparty && docker build -t ubuntu-build-android:2.0 ubuntu-build-android && docker build -t ubuntu-build-mingw:2.0 ubuntu-mingw

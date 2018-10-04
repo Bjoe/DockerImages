@@ -1,4 +1,4 @@
-FROM ubuntu-build:1.0
+FROM ubuntu-build:2.0
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
