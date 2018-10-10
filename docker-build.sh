@@ -2,7 +2,7 @@
 
 if [ "$0" = "/source/docker-build.sh" ]
 then
-  cmake -H/source -B/build && cmake --build /builds
+  cmake -H/source -B/build -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/developer/opt && cmake --build /build --target install
   /bin/bash
   exit 0;
 fi
