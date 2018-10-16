@@ -9,7 +9,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
-    texinfo libglib2.0-dev autoconf libtool bison libsdl-dev build-essential \
+    curl xxd unzip texinfo libglib2.0-dev autoconf libtool bison libsdl-dev build-essential \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
