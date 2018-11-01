@@ -19,6 +19,8 @@ RUN \
       pkg-config make automake autoconf libtool \
       gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf libstdc++-7-dev libc++-dev \
       cmake git ninja-build clang-6.0 clang gcc g++ \
+      # To start QtCreator inside the docker
+      libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &
