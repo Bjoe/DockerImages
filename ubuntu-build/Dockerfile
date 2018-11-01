@@ -21,9 +21,9 @@ RUN \
       cmake git ninja-build clang-6.0 clang gcc g++ \
       # To start QtCreator inside the docker
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
+      # Some tools
+      powerline tmux \
       && \
-      #/usr/bin/redis-server &
-      #/usr/bin/mongod --config /etc/mongodb.conf &
       apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
       # Add user and group
       groupadd -g 1000 developer && \
