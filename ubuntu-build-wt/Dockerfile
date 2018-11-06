@@ -1,4 +1,4 @@
-FROM ubuntu-build:2.0
+FROM ubuntu-build:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -13,6 +13,7 @@ RUN \
      graphviz \
      libsqlite3-dev \
      qt4-dev-tools \
+     qt4-default \
      libboost1.65-dev \
      libboost-thread1.65-dev \
      libboost-filesystem1.65-dev \
@@ -24,6 +25,11 @@ RUN \
      libunwind-dev \
      libhpdf-dev \
      libpango1.0-dev \
+     libmysqlclient-dev \
+     libpq-dev \
+     libssl-dev \
+     zlib1g-dev \
+     libglvnd-core-dev \
      && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 

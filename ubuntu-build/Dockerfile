@@ -17,12 +17,18 @@ RUN \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
       openssh-server python python3 \
       pkg-config make automake autoconf libtool \
-      gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf libstdc++-7-dev libc++-dev \
-      cmake git ninja-build clang-6.0 clang gcc g++ \
+      cmake git ninja-build   \
+      gcc g++ libstdc++-7-dev \
+      gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
+      gdb gdbserver libcc1-0 cgdb \
+      clang libc++-dev libc++abi-dev \
+      clang-6.0 clang-tools-6.0 clang-format-6.0 python-clang-6.0 lldb-6.0 lld-6.0 \
+      #clang-7 clang-tools-7 clang-format-7 python-clang-7 lldb-7 lld-7 libc++-7-dev libc++abi-7-dev \
+      #clang-8 clang-tools-8 clang-format-8 python-clang-8 lldb-8 lld-8 libc++-8-dev libc++abi-8-dev \      
       # To start QtCreator inside the docker
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
       # Some tools
-      powerline tmux \
+      powerline tmux less lnav \
       && \
       apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
       # Add user and group

@@ -30,7 +30,7 @@ docker run \
 -v $SRC_DIR:/source \
 -v $BUILD_DIR:/build \
 -v /tmp:/tmp \
-ubuntu-build:2.0 \
+ubuntu-build-xxxx:latest \
 /bin/bash /source/docker-build.sh 2>&1 | tee $BUILD_DIR/docker-build.log
 
 #--dns=8.8.8.8 \

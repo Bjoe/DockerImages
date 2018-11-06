@@ -9,7 +9,7 @@ docker run \
 -v $HOME:/home/developer \
 -v $HOME:/home/$USER \
 -v /tmp:/tmp \
-ubuntu-build-XXXXX:2.0 \
+ubuntu-build:latest \
 /bin/bash
 
 #--dns=8.8.8.8 \
