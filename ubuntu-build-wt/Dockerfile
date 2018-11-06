@@ -30,6 +30,9 @@ RUN \
      libssl-dev \
      zlib1g-dev \
      libglvnd-core-dev \
+     libglew-dev \
+     mesa-common-dev \
+     libx11-dev \
      && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
