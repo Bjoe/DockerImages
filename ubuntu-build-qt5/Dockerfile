@@ -28,7 +28,7 @@ RUN \
     zlib1g-dev \
     # CuteMarkEd
     libqt5webkit5-dev qttools5-dev-tools qt5-default \
-    discount libmarkdown2-dev libhunspell-dev 
+    discount libmarkdown2-dev libhunspell-dev \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
