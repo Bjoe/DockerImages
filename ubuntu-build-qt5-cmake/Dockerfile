@@ -9,6 +9,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
+    # Trojia
     qt5-default \
     qmlscene \
     qttools5-dev-tools \
@@ -25,6 +26,9 @@ RUN \
     libgpg-error-dev \
     libgpgme-dev \
     zlib1g-dev \
+    # CuteMarkEd
+    libqt5webkit5-dev qttools5-dev-tools qt5-default \
+    discount libmarkdown2-dev libhunspell-dev 
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
