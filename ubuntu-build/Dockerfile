@@ -28,7 +28,7 @@ RUN \
       # To start QtCreator inside the docker
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
       # Some tools
-      powerline tmux less lnav \
+      tmux less vim lnav \
       && \
       apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
       # Add user and group
