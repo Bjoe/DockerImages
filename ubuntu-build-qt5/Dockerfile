@@ -14,7 +14,7 @@ RUN \
     qmlscene \
     qttools5-dev-tools \
     libqt5svg5-dev \
-    libqt5webkit5-dev \
+    #libqt5webkit5-dev 
     qtdeclarative5-dev \
     libqt5serialport5-dev \
     qtscript5-dev \
@@ -27,7 +27,8 @@ RUN \
     libgpgme-dev \
     zlib1g-dev \
     # CuteMarkEd
-    libqt5webkit5-dev qttools5-dev-tools qt5-default \
+    #libqt5webkit5-dev 
+    qttools5-dev-tools qt5-default \
     discount libmarkdown2-dev libhunspell-dev \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
