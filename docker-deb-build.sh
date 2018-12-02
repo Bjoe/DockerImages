@@ -9,13 +9,13 @@ then
   echo "== STAGE 04 (extract sources) ==" && \
   cd /source && \
   dpkg-source -b qtwebkit-opensource-src-5.212.0~alpha2
-  dpkg-source -x qtwebkit-opensource-src_5.212.0~alpha2-7ubuntu1.dsc /build/deb-build && \
+  dpkg-source -x qtwebkit-opensource-src_5.212.0~alpha2-8ubuntu1.dsc /build/deb-build && \
   echo "== STAGE 04 (building package) ==" && \
   cd /build/deb-build && \
   sudo dpkg-buildpackage && \
-  cd /source
-  echo "+++ lintian output +++"
-  lintian --pedantic --display-info *.changes
+  cd /build && \
+  echo "+++ lintian output +++" && \
+  find /build -name "*.changes" -exec lintian --pedantic --display-info {} \; && \
   echo "+++ end of lintian output +++"
   /bin/bash
   exit 0;

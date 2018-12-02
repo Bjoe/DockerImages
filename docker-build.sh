@@ -17,7 +17,10 @@ if [ "$1" = "-clean" ]; then
   rm -fr $BUILD_DIR
 fi
 mkdir -p $BUILD_DIR
-mkdir $DOCKER_HOME
+
+if [[ ! -d $DOCKER_HOME ]]; then
+  mkdir $DOCKER_HOME
+fi
 
 cp -R ~/.ssh $DOCKER_HOME
 
