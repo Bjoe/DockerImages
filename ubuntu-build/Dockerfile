@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
@@ -16,7 +16,7 @@ RUN \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
       openssh-server python python3 \
-      pkg-config make automake autoconf libtool \
+      pkg-config make automake autoconf libtool bear \
       cmake git ninja-build   \
       gcc g++ libstdc++-7-dev \
       gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
@@ -29,11 +29,11 @@ RUN \
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
       # Some tools
       tmux less vim lnav \
-      && \
-      apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
-      # Add user and group
-      groupadd -g 1000 developer && \
-    useradd -m -c "Build user" -G sudo -s /bin/bash -u 1000 -g 1000 developer && \
+    && \
+    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
+    # Add user and group
+    groupadd -g 1000 developer && \
+    useradd -m -c "Build user" -G sudo,video -s /bin/bash -u 1000 -g 1000 developer && \
     echo "developer:developer" | chpasswd && \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
     
