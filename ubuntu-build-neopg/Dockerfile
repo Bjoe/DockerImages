@@ -25,6 +25,7 @@ RUN \
     libgnutls28-dev \
     libcurl4-gnutls-dev \
     gettext \
+    pcscd \ # For opensc pkcs11
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 

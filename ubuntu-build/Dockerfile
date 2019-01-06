@@ -33,7 +33,7 @@ RUN \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
     groupadd -g 1000 developer && \
-    useradd -m -c "Build user" -G sudo,video -s /bin/bash -u 1000 -g 1000 developer && \
+    useradd -m -c "Build user" -G sudo,video,plugdev -s /bin/bash -u 1000 -g 1000 developer && \
     echo "developer:developer" | chpasswd && \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
     
