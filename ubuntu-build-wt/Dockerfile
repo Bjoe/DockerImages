@@ -9,11 +9,9 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
-     doxygen \
-     graphviz \
-     libsqlite3-dev \
-     qt4-dev-tools \
+     doxygen graphviz qt4-dev-tools \
      qt4-default \
+     libsqlite3-dev \
      libboost1.65-dev \
      libboost-thread1.65-dev \
      libboost-filesystem1.65-dev \

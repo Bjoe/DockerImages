@@ -9,7 +9,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
-    doxygen \
+    doxygen graphviz qttools5-dev-tools \
     libsqlite3-dev \
     libz-dev \
     libbz2-dev \

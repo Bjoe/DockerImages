@@ -16,7 +16,7 @@ RUN \
     bzip2 \
     gcovr \
     cppcheck \
-    doxygen \
+    doxygen graphviz qttools5-dev-tools \
     lcov \
     libboost-date-time1.65-dev \
     libboost-locale-dev \

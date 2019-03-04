@@ -10,8 +10,7 @@ RUN \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
     libltdl-dev \
-    doxygen \
-    graphviz \
+    doxygen graphviz qttools5-dev-tools \
     xsltproc \
     docbook-xsl \
     libpcsclite-dev \
