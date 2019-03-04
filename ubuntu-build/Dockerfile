@@ -26,7 +26,7 @@ RUN \
       #clang-7 clang-tools-7 clang-format-7 python-clang-7 lldb-7 lld-7 libc++-7-dev libc++abi-7-dev \
       #clang-8 clang-tools-8 clang-format-8 python-clang-8 lldb-8 lld-8 libc++-8-dev libc++abi-8-dev \      
       # To start QtCreator inside the docker
-      libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxrender1 libdbus-1-dev \
+      libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev \
       # Some tools
       tmux less vim lnav \
     && \
