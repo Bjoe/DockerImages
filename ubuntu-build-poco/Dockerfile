@@ -13,9 +13,12 @@ RUN \
       unixodbc-dev \
       apache2-dev \
       libapr1-dev \
-      zlib1g-dev \
       libmysqlclient-dev \
       libpq-dev \
+      # POCO_UNBUNDLED
+      libpcre3-dev \
+      zlib1g-dev \
+      libsqlite3-dev \
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &
