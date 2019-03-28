@@ -10,9 +10,10 @@ RUN \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
     sudo ca-certificates make libncurses-dev libexpat1-dev autogen autoconf2.64 \
-    gnat-5 g++ gcc git file expect subversion pkg-config texinfo wget   \
-    # libsdl2-dev tcl expect byacc \
-    #autoconf2.64 autogen bison flex g++ git gperf libxml2-utils subversion xsltproc 
+    gnat-5 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
+    xorriso \
+    # Needed for the host system -> qemu-system-x86 !!!
+    # libsdl2-dev byacc bison flex gperf xsltproc 
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
