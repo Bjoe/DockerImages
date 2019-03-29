@@ -26,11 +26,17 @@ mkdir $DOCKER_HOME
 cp -R ~/.ssh $DOCKER_HOME
 
 docker run \
---name source-build \
+--name genode-build \
 --rm \
--e "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" \
 -i -t \
+--privileged \
+--cap-add=SYS_PTRACE --security-opt "seccomp=unconfined" \
+-e "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" \
+-e "DISPLAY=$DISPLAY" \
+--device=/dev/dri:/dev/dri \
+-v /dev/bus/usb:/dev/bus/usb \
 -v $DOCKER_HOME:/home/developer \
+-v $HOME:$HOME \
 -v $SRC_DIR:/source \
 -v $BUILD_DIR:/build \
 -v /tmp:/tmp \
