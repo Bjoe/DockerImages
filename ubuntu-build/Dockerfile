@@ -1,4 +1,4 @@
-FROM ubuntu:devel
+FROM ubuntu:rolling
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
