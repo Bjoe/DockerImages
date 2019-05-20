@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:devel
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
@@ -18,13 +18,22 @@ RUN \
       openssh-server python python3 \
       pkg-config make automake autoconf libtool bear \
       cmake git ninja-build   \
-      gcc g++ libstdc++-7-dev \
-      gcc-7 g++-7 gcc-5 g++-5 g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
+      gcc g++ \
+      gcc-7 g++-7 \
+      gcc-8 g++-8 \
+      gcc-9 g++-9 \
+      g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
       gdb gdbserver libcc1-0 cgdb \
-      clang libc++-dev libc++abi-dev \
-      clang-6.0 clang-tools-6.0 clang-format-6.0 python-clang-6.0 lldb-6.0 lld-6.0 \
-      #clang-7 clang-tools-7 clang-format-7 python-clang-7 lldb-7 lld-7 libc++-7-dev libc++abi-7-dev \
-      #clang-8 clang-tools-8 clang-format-8 python-clang-8 lldb-8 lld-8 libc++-8-dev libc++abi-8-dev \      
+      libstdc++-7-dev libstdc++-8-dev libstdc++-9-dev \
+      clang clang-tools libclang-common-8-dev libclang-8-dev libclang1 clang-format python-clang lldb lld libc++-dev libc++abi-dev \
+      # Clang and co
+      # clang-7 clang-tools-7 clang-7-doc libclang-common-7-dev libclang-7-dev libclang1-7 clang-format-7 python-clang-7
+      # lldb
+      # lldb-7
+      # lld (linker)
+      # lld-7
+      # libc++
+      # libc++-7-dev libc++abi-7-dev
       # To start QtCreator inside the docker
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev \
       # Some tools

@@ -18,7 +18,7 @@ RUN \
     cppcheck \
     doxygen graphviz qttools5-dev-tools \
     lcov \
-    libboost-date-time1.65-dev \
+    libboost-date-time1.67-dev \
     libboost-locale-dev \
     libusb-1.0-0-dev \
     libbz2-dev \
