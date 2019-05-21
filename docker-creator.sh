@@ -4,6 +4,7 @@ docker run \
 --name dev-ui \
 --rm \
 -i -t \
+--net=host \
 --privileged \
 --cap-add=SYS_PTRACE --security-opt "seccomp=unconfined" \
 -e "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" \
