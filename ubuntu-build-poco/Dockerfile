@@ -10,15 +10,25 @@ RUN \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
       libssl-dev \
+      libssl1.1-dbgsym \
+      openssl-dbgsym \
       unixodbc-dev \
+      unixodbc-dbgsym \
       apache2-dev \
+      apache2-bin-dbgsym \
       libapr1-dev \
+      libapr1-dbg \
       libmysqlclient-dev \
+      libmysqlclient20-dbgsym \
       libpq-dev \
+      libpq5-dbgsym \
       # POCO_UNBUNDLED
       libpcre3-dev \
+      libpcre3-dbg \
       zlib1g-dev \
+      zlib1g-dbg \
       libsqlite3-dev \
+      libsqlite3-0-dbgsym \
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &
