@@ -4,10 +4,11 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND="noninteractive" \
-  apt-get -y install gnupg2 wget sudo && \
+  apt-get -y install ubuntu-dbgsym-keyring gnupg2 wget sudo && \
   wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 
 COPY llvm.list /etc/apt/sources.list.d/llvm.list
+COPY ddebs.list /etc/apt/sources.list.d/ddebs.list
 
 # Install all build deps
 RUN \
@@ -37,7 +38,7 @@ RUN \
       # To start QtCreator inside the docker
       libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev \
       # Some tools
-      tmux less vim lnav \
+      tmux less vim lnav curl p7zip-full \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
