@@ -1,4 +1,4 @@
-FROM cpp-build-env-ubuntu:latest
+FROM bojoe/cpp-build-env-ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -10,10 +10,9 @@ RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
-    #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
-      curl unzip openjdk-8-jdk \
-      && \
-      apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
+    curl unzip openjdk-8-jdk \
+    && \
+    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     mkdir -p ${ANDROID_HOME} && \
   curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > android-sdk.zip && \
   unzip -qq android-sdk.zip -d ${ANDROID_HOME} && rm -f android-sdk.zip && \
