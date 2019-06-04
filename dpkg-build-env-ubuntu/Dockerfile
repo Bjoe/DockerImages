@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:rolling
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 ENV DEBIAN_FRONTEND noninteractive

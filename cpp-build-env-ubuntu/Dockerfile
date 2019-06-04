@@ -3,6 +3,7 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
   apt-get update && \
+  DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade && \
   DEBIAN_FRONTEND="noninteractive" \
   apt-get -y install ubuntu-dbgsym-keyring gnupg2 wget sudo && \
   wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
@@ -15,8 +16,7 @@ RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
-    #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
-      openssh-server python python3 \
+      openssh-server python python3 curl p7zip-full \
       pkg-config make automake autoconf libtool bear \
       cmake git ninja-build   \
       gcc g++ \
@@ -41,7 +41,7 @@ RUN \
       # libnvidia-gl-390:amd64
       libgl1-mesa-dri \
       # Some tools
-      tmux less vim lnav curl p7zip-full \
+      #tmux less vim lnav
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
