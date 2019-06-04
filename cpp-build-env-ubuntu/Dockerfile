@@ -36,10 +36,10 @@ RUN \
       # libc++
       # libc++-7-dev libc++abi-7-dev
       # To start QtCreator inside the docker
-      libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev \
+      #libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev
       # Need some GL driver .... from mesa or something else ...
       # libnvidia-gl-390:amd64
-      libgl1-mesa-dri \
+      #libgl1-mesa-dri
       # Some tools
       #tmux less vim lnav
     && \
