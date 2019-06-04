@@ -7,11 +7,13 @@ USER root:root
 RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends 
       libssl-dev \
-      libssl1.1-dbgsym \
-      openssl-dbgsym \
+#      libssl1.1-dbgsym 
+#      openssl-dbgsym 
       unixodbc-dev \
       unixodbc-dbgsym \
       apache2-dev \
