@@ -1,4 +1,4 @@
-FROM ubuntu-build:latest
+FROM bojoe/cpp-build-env-ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -7,8 +7,9 @@ USER root:root
 RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
-    #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
     npm \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin

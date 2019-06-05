@@ -1,8 +1,10 @@
-FROM ubuntu:latest
+FROM ubuntu:rolling
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
   apt-get update && \
+  DEBIAN_FRONTEND="noninteractive" \
+  apt-get -y upgrade --no-install-recommends && \
   DEBIAN_FRONTEND="noninteractive" \
   apt-get -y install wget sudo && \
   apt-get -y install --no-install-recommends \ 

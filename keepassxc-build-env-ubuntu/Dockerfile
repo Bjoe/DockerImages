@@ -1,4 +1,4 @@
-FROM ubuntu-build:latest
+FROM bojoe/cpp-build-env-ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 ENV TERM=xterm-256color
@@ -9,8 +9,9 @@ USER root:root
 RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
-    #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
     qtbase5-dev \
     qttools5-dev \
     qttools5-dev-tools \
