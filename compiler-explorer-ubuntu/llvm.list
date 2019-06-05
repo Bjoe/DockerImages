@@ -1,0 +1,9 @@
+# i386 not available
+deb [ arch=amd64 ] http://apt.llvm.org/disco/ llvm-toolchain-disco main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco main
+# 7
+deb [ arch=amd64 ] http://apt.llvm.org/disco/ llvm-toolchain-disco-7 main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco-7 main
+# 8
+deb [ arch=amd64 ] http://apt.llvm.org/disco/ llvm-toolchain-disco-8 main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco-8 main
