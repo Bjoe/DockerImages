@@ -7,6 +7,8 @@ USER root:root
 RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     #-y install -o Dpkg::Options::="--force-confnew" --no-install-recommends
     sudo ca-certificates curl xxd unzip texinfo libglib2.0-dev autoconf libtool bison libsdl-dev build-essential \
