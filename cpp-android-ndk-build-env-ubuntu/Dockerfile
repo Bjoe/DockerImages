@@ -9,6 +9,8 @@ ENV ANDROID_HOME /opt/androidSdk
 RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
     curl unzip openjdk-8-jdk \
     && \
