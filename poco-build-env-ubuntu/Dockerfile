@@ -1,4 +1,4 @@
-FROM ubuntu-build:latest
+FROM bojoe/cpp-build-env-ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
