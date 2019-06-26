@@ -10,7 +10,7 @@ RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
-    python3-pip \
+    python-pip \
     && \
     pip install -r requirements.txt \
     && \
