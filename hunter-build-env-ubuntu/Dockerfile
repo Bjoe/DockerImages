@@ -10,6 +10,7 @@ RUN \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
+    python-setuptools \
     python-pip \
     && \
     pip install -r /tmp/requirements.txt \
