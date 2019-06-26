@@ -11,10 +11,11 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     python-setuptools \
+    python-enchant \
     python-pip \
     && \
-    pip install -r /tmp/requirements.txt \
-    && \
-    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && rm /tmp/requirements.txt
+    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
 USER 1000:1000
+
+RUN pip install -r /tmp/requirements.txt && sudo rm /tmp/requirements.txt
