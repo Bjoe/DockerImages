@@ -1,7 +1,38 @@
-#!/bin/bash -x
+#!/bin/bash
+
+DOCKER_IMAGE=bojoe/cpp-build-env-ubuntu:latest
+
+if [ "$1" = "inside" ]
+###############################################################################################################################################################################
+# Execute inside the docker
+###############################################################################################################################################################################
+then
+  sudo groupmod -g $3 developer
+  sudo usermod -u $2 -g $3 developer
+  sudo apt update
+  # To start QtCreator inside the docker
+  #libglvnd-dev libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev
+  sudo apt install libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev libgl1-mesa-dri libgl1:amd64 #libglvnd-dev 
+  # Need some GL driver .... from mesa or something else ...
+  # libnvidia-gl-390:amd64
+  # libgl1-mesa-dri
+  # Some tools
+  sudo apt install tmux less vim lnav
+  /bin/bash
+  exit 0;
+fi
+###############################################################################################################################################################################
+###############################################################################################################################################################################
+###############################################################################################################################################################################
+
+USERID="$(id -u)"
+GROUPID="$(id -g)"
+
+DOCKER_SCRIPT="$(basename $0)"
+CURRENT_DIR="$(pwd)"
 
 docker run \
---name dev-ui \
+--name dev-creator \
 --rm \
 -i -t \
 --net=host \
@@ -14,7 +45,5 @@ docker run \
 -v $HOME:/home/developer \
 -v $HOME:/home/$USER \
 -v /tmp:/tmp \
-ubuntu-build:latest \
-/bin/bash
-
-#--dns=8.8.8.8 \
+$DOCKER_IMAGE \
+/bin/bash $CURRENT_DIR/$DOCKER_SCRIPT inside $USERID $GROUPID
