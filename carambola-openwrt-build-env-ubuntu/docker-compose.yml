@@ -1,0 +1,12 @@
+version: "3.6"
+
+services:
+  do-carambola2-firmware-build:
+    image: carambola-openwrt-build-env-ubuntu
+    volumes:
+      - "${DOCKER_SOURCE_DIR}:/source"
+      - "${DOCKER_BUILD_DIR}:/build"
+      - "/tmp:/tmp"
+    user: 0:0
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK

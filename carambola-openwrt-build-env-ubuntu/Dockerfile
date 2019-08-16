@@ -10,6 +10,7 @@ RUN \
    apt-get -y upgrade --no-install-recommends && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
+    ca-certificates \
     # From carambola the wiki https://www.8devices.com/wiki/carambola2:build
     git git-doc subversion build-essential flex wget gawk unzip man file python2.7 zlib1g-dev libssl-dev libncurses5-dev \ 
     # libssl1.0-dev  not found ?!
