@@ -2,7 +2,7 @@ version: "3.6"
 
 services:
   do-carambola2-firmware-build:
-    image: carambola-openwrt-build-env-ubuntu
+    image: bojoe/carambola-openwrt-build-env-ubuntu
     volumes:
       - "${DOCKER_SOURCE_DIR}:/source"
       - "${DOCKER_BUILD_DIR}:/build"
