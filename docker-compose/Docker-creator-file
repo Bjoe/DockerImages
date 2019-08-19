@@ -17,6 +17,8 @@ RUN \
   libgl1-mesa-dri libgl1:amd64 \
   # Some tools
   tmux less vim lnav \
+  # For debugging, need a ternminal emulator
+  xterm \
   && \
   apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
