@@ -11,16 +11,10 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     sudo ca-certificates make libncurses-dev libexpat1-dev autogen autoconf2.64 \
-    gnat-5 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
-    xorriso bison flex gawk \
+    gnat-4.9 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
+    xorriso bison flex gawk gprbuild \
     # Needed for the host system -> qemu-system-x86 !!!
     # libsdl2-dev byacc gperf xsltproc 
-    # To start QtCreator inside the docker
-    # libgl1-mesa-glx
-    # libglvnd-dev on 18.04
-    # libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev
-    # Some tools
-    # tmux less vim lnav
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
