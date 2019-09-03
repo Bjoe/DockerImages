@@ -11,7 +11,7 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     sudo ca-certificates make libncurses-dev libexpat1-dev autogen autoconf2.64 \
-    gnat-4.9 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
+    gnat-5 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
     xorriso bison flex gawk gprbuild \
     # Needed for the host system -> qemu-system-x86 !!!
     # libsdl2-dev byacc gperf xsltproc 
