@@ -73,6 +73,29 @@ services:
       - $HOME:/home/$USER
       - /tmp:/tmp
 
+  wt-qt-creator-ide:
+    build:
+      context: .
+      dockerfile: Docker-creator-file
+      args:
+        dockerimage: bojoe/wt-build-env-ubuntu:latest
+    container_name: dev-wt-creator-ide
+    network_mode: "host"
+    privileged: true
+    security_opt:
+      - seccomp=unconfined
+    cap_add:
+      - SYS_PTRACE
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+      - DISPLAY=$DISPLAY
+    volumes:
+      - $HOME:/home/developer
+      - $HOME:/home/$USER
+      - /tmp:/tmp
+
   nexus:
     image: sonatype/nexus3
     ports:
