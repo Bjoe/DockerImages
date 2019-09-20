@@ -13,7 +13,7 @@ RUN \
     apt-get -y install --no-install-recommends \
     sudo \
     ca-certificates \
-    gpg \
+    gpgv2 \
     build-essential \
     make \
     libncurses-dev \
