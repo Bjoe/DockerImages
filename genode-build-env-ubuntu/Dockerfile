@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM ubuntu:16.04
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -20,7 +21,7 @@ RUN \
     autogen \
     autoconf \
     autoconf2.64 \
-    gnat-7 \
+    gnat-5 \
     g++ \
     gcc \
     git \
