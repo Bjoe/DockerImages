@@ -12,6 +12,7 @@ RUN \
     apt-get -y install --no-install-recommends \
     sudo \
     ca-certificates \
+    gpg \
     build-essential \
     make \
     libncurses-dev \
@@ -19,7 +20,7 @@ RUN \
     autogen \
     autoconf \
     autoconf2.64 \
-    gnat-5 \
+    gnat-7 \
     g++ \
     gcc \
     git \
