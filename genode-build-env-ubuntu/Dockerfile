@@ -11,7 +11,6 @@ RUN \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
     sudo \
-    sshfs \
     ca-certificates \
     build-essential \
     make \
@@ -37,19 +36,18 @@ RUN \
     flex \
     gawk \
     gprbuild \
-    python \
-    python2 \
-    python3 \
-    python-future \
-    python-tempita \
-    python-ply \
-    python-six \
-    python3-pyparsing \
     xsltproc \
     unzip \
     qemu-system \
     ccache \
     # Needed for the host system -> qemu-system-x86 !!!
+    # python 
+    # python3 
+    # python-future 
+    # python-tempita 
+    # python-ply 
+    # python-six 
+    # python3-pyparsing 
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group

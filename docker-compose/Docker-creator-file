@@ -16,7 +16,7 @@ RUN \
   # libnvidia-gl-390:amd64
   libgl1-mesa-dri libgl1:amd64 \
   # Some tools
-  tmux less vim lnav \
+  sshfs tmux less vim lnav \
   # For debugging, need a ternminal emulator
   xterm \
   && \
