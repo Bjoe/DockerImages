@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -10,11 +10,46 @@ RUN \
    apt-get -y upgrade --no-install-recommends && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
-    sudo ca-certificates make libncurses-dev libexpat1-dev autogen autoconf2.64 \
-    gnat-5 g++ gcc git file expect subversion pkg-config texinfo wget libxml2-utils tcl \
-    xorriso bison flex gawk gprbuild \
+    sudo \
+    sshfs \
+    ca-certificates \
+    build-essential \
+    make \
+    libncurses-dev \
+    libexpat1-dev \
+    autogen \
+    autoconf \
+    autoconf2.64 \
+    gnat-5 \
+    g++ \
+    gcc \
+    git \
+    file \
+    expect \
+    subversion \
+    pkg-config \
+    texinfo \
+    wget \
+    libxml2-utils \
+    tcl \
+    xorriso \
+    bison \
+    flex \
+    gawk \
+    gprbuild \
+    python \
+    python2 \
+    python3 \
+    python-future \
+    python-tempita \
+    python-ply \
+    python-six \
+    python3-pyparsing \
+    xsltproc \
+    unzip \
+    qemu-system \
+    ccache \
     # Needed for the host system -> qemu-system-x86 !!!
-    # libsdl2-dev byacc gperf xsltproc 
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
