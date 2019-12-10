@@ -18,23 +18,23 @@ RUN \
     apt-get -y install --no-install-recommends \ 
       openssh-server python python3 curl p7zip-full \
       pkg-config make automake autoconf libtool bear \
-      cmake git ninja-build   \
+      ccache cmake git ninja-build   \
       gcc g++ \
       gcc-7 g++-7 \
       gcc-8 g++-8 \
       gcc-9 g++-9 \
-      g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
-      gdb gdbserver libcc1-0 cgdb \
-      libstdc++-7-dev libstdc++-8-dev libstdc++-9-dev \
-      clang clang-tools libclang-common-8-dev libclang-8-dev libclang1 clang-format python-clang lldb lld libc++-dev libc++abi-dev \
-      # Clang and co
-      # clang-7 clang-tools-7 clang-7-doc libclang-common-7-dev libclang-7-dev libclang1-7 clang-format-7 python-clang-7
-      # lldb
-      # lldb-7
-      # lld (linker)
-      # lld-7
-      # libc++
-      # libc++-7-dev libc++abi-7-dev
+      g++-arm-linux-gnueabi g++-arm-linux-gnueabihf gcc-avr \
+      gdb gdbserver libcc1-0 cgdb gdb-avr \
+      libstdc++-8-dev \
+      libstdc++-9-dev \
+      clang-9 clang-tools-9 clang-tidy-9 \
+      libclang-common-9-dev libclang-9-dev \
+      libclang1-9 \
+      clang-format-9 \
+      python-clang-9 \
+      clangd-9 \
+      lldb-9 lld-9 \
+      libc++-9-dev libc++abi-9-dev \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
