@@ -23,7 +23,8 @@ RUN \
       gcc-7 g++-7 \
       gcc-8 g++-8 \
       gcc-9 g++-9 \
-      g++-arm-linux-gnueabi g++-arm-linux-gnueabihf gcc-avr \
+      g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
+      gcc-avr binutils-avr avr-libc avrdude \
       gdb gdbserver libcc1-0 cgdb gdb-avr \
       libstdc++-8-dev \
       libstdc++-9-dev \
