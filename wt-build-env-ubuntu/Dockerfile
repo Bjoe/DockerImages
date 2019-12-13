@@ -13,10 +13,10 @@ RUN \
      doxygen graphviz qt4-dev-tools \
      qt4-default \
      libsqlite3-dev \
-     libboost1.65-dev \
-     libboost-thread1.65-dev \
-     libboost-filesystem1.65-dev \
-     libboost-program-options1.65-dev \
+     libboost-dev \
+     libboost-thread-dev \
+     libboost-filesystem-dev \
+     libboost-program-options-dev \
      libgraphicsmagick++1-dev \
      libfcgi-dev \
      firebird-dev \
