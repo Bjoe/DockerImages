@@ -23,7 +23,7 @@ RUN \
       libapr1-dbg \
       libmysqlclient21 \
       libmysqlclient-dev \
-      libmysqlclient21-dbgsym \
+      #libmysqlclient21-dbgsym ?
       libpq5 \
       libpq-dev \
       libpq5-dbgsym \
