@@ -12,29 +12,25 @@ RUN \
     apt-get -y install --no-install-recommends \ 
       libssl1.1 \
       libssl-dev \
-      libssl1.1-dbgsym \
-      #openssl-dbgsym 
+      # libssl1.1-dbgsym 
+      # openssl-dbgsym 
       unixodbc-dev \
-      unixodbc-dbgsym \
-      apache2-bin \
+      # unixodbc-dbgsym \
       apache2-dev \
-      apache2-bin-dbgsym \
+      # apache2-bin-dbgsym ?
       libapr1-dev \
       libapr1-dbg \
-      libmysqlclient21 \
       libmysqlclient-dev \
-      #libmysqlclient21-dbgsym ?
-      libpq5 \
+      # libmysqlclient21-dbgsym ?
       libpq-dev \
-      libpq5-dbgsym \
+      # libpq5-dbgsym ?
       # POCO_UNBUNDLED
       libpcre3-dev \
       libpcre3-dbg \
       zlib1g-dev \
       zlib1g-dbg \
-      libsqlite3-0 \
       libsqlite3-dev \
-      libsqlite3-0-dbgsym \
+      # libsqlite3-0-dbgsym ?
       && \
       #/usr/bin/redis-server &
       #/usr/bin/mongod --config /etc/mongodb.conf &
