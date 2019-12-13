@@ -1,0 +1,15 @@
+version: "3.6"
+
+services:
+  build-sourcetrail-lib:
+    image: bojoe/qt5-build-env-ubuntu:latest
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+    volumes:
+      - $HOME:/home/developer
+      - $HOME:/home/$USER
+      - /tmp:/tmp
+    entrypoint: 
+      - bash 
+      - $HOME/Development/DockerImages/qtc-sourcetrail-build-env-ubuntu/execute-build.sh
+
