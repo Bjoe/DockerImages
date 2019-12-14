@@ -10,7 +10,7 @@ RUN \
 
 COPY llvm.list /etc/apt/sources.list.d/llvm.list
 COPY ddebs.list /etc/apt/sources.list.d/ddebs.list
-COPY connfigure-alternatives-compilers.sh /tmp
+COPY configure-alternatives-compilers.sh /tmp
 
 # Install all build deps
 RUN \
@@ -38,8 +38,8 @@ RUN \
       lldb-9 lld-9 \
       libc++-9-dev libc++abi-9-dev \
     && \
-    /tmp/connfigure-alternatives-compilers.sh && \
-    rm /tmp/connfigure-alternatives-compilers.sh && \
+    /tmp/configure-alternatives-compilers.sh && \
+    rm /tmp/configure-alternatives-compilers.sh && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
     groupadd -g 1000 developer && \
