@@ -26,7 +26,7 @@ RUN \
       gcc-9 g++-9 \
       g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
       gcc-avr binutils-avr avr-libc avrdude \
-      gdb gdbserver libcc1-0 cgdb gdb-avr \
+      gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
       libstdc++-8-dev \
       libstdc++-9-dev \
       clang-9 clang-tools-9 clang-tidy-9 \
