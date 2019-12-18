@@ -97,6 +97,30 @@ services:
       - $HOME:/home/$USER
       - /tmp:/tmp
 
+  fuchsia-qt-creator-ide:
+    build:
+      context: .
+      dockerfile: Docker-creator-file
+      args:
+        dockerimage: bojoe/fuchsia-build-env-ubuntu:latest
+    container_name: dev-fuchsia-creator-ide
+    network_mode: "host"
+    privileged: true
+    security_opt:
+      - seccomp=unconfined
+    cap_add:
+      - SYS_PTRACE
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - $HOME:/home/developer
+      - $HOME:/home/$USER
+      - /tmp:/tmp
+
   wt-qt-creator-ide:
     build:
       context: .
