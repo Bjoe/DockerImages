@@ -1,5 +1,6 @@
-#FROM ubuntu:latest
-FROM ubuntu:16.04
+FROM ubuntu:rolling
+
+#FROM ubuntu:16.04
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
@@ -23,6 +24,7 @@ RUN \
     autoconf2.64 \
     gnat-5 \
     g++ \
+    gperf \
     gcc \
     git \
     file \
@@ -32,7 +34,10 @@ RUN \
     texinfo \
     wget \
     libxml2-utils \
+    xmllint \
+    byacc \
     tcl \
+    tclsh \
     xorriso \
     bison \
     flex \
@@ -42,6 +47,10 @@ RUN \
     unzip \
     qemu-system \
     ccache \
+    libSDL-dev \
+    sgdisk \
+    e2tools \
+    qemu \
     # Needed for the host system -> qemu-system-x86 !!!
     # python 
     # python3 
