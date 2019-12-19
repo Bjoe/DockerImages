@@ -22,7 +22,7 @@ RUN \
     autogen \
     autoconf \
     autoconf2.64 \
-    gnat-5 \
+    gnat \
     g++ \
     gperf \
     gcc \
