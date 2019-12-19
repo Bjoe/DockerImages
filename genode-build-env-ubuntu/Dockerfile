@@ -34,7 +34,6 @@ RUN \
     texinfo \
     wget \
     libxml2-utils \
-    xmllint \
     byacc \
     tcl \
     tclsh \
@@ -47,8 +46,6 @@ RUN \
     unzip \
     qemu-system \
     ccache \
-    libSDL-dev \
-    sgdisk \
     e2tools \
     qemu \
     # Needed for the host system -> qemu-system-x86 !!!
