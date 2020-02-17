@@ -13,6 +13,7 @@ RUN \
     libleptonica-dev \
     libgl1-mesa-dev \
     libpulse0 libpulse-mainloop-glib0 \
+    v4l-utils \
      && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
