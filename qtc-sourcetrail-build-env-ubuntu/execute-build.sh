@@ -1,7 +1,8 @@
-QTCREATOR_VERSION=4.10/4.10.0
+QTCREATOR_VERSION=4.11/4.11.0
 QTCREATOR_DIR=/home/jboehme
+export PATH="$QTCREATOR_DIR/opt/Qt/5.14.0/gcc_64/bin:$PATH"
 
-export PATH="$QTCREATOR_DIR/opt/Qt/5.12.3/gcc_64/bin:$PATH"
+
 cd $HOME/Development
 
 git clone https://github.com/CoatiSoftware/qtc-sourcetrail.git
