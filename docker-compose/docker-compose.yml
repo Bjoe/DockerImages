@@ -14,13 +14,11 @@ services:
       - seccomp=unconfined
     cap_add:
       - SYS_PTRACE
-    devices:
-      - /dev/dri:/dev/dri
     environment:
       - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
       - DISPLAY=$DISPLAY
     volumes:
-      - /dev/bus/usb:/dev/bus/usb
+      - /dev:/dev
       - $HOME:/home/developer
       - $HOME:/home/$USER
       - /tmp:/tmp
@@ -166,6 +164,28 @@ services:
       - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
       - DISPLAY=$DISPLAY
     volumes:
+      - $HOME:/home/developer
+      - $HOME:/home/$USER
+      - /tmp:/tmp
+
+  computer-vision-ide:
+    build:
+      context: .
+      dockerfile: Docker-creator-file
+      args:
+        dockerimage: bojoe/computer-vision-build-env-ubuntu:latest
+    container_name: dev-computer-vision-ide
+    network_mode: "host"
+    privileged: true
+    security_opt:
+      - seccomp=unconfined
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /dev:/dev
       - $HOME:/home/developer
       - $HOME:/home/$USER
       - /tmp:/tmp
