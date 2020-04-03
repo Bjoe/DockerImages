@@ -3,7 +3,6 @@ version: '3.6'
 services:
     build-poco-plain:
         image: bojoe/cpp-build-env-ubuntu:latest
-        container_name: ${PROJECT_NAME}-plain
         user: 0:0
         volumes:
             - ${WK_DIR}:/home/developer
@@ -38,7 +37,6 @@ services:
 
     build-poco:
         image: bojoe/poco-build-env-ubuntu:latest
-        container_name: ${PROJECT_NAME}
         user: 0:0
         volumes:
             - ${WK_DIR}:/home/developer
@@ -73,7 +71,6 @@ services:
 
     build-poco-android:
         image: bojoe/cpp-android-ndk-build-env-ubuntu:latest
-        container_name: ${PROJECT_NAME}-android
         user: 0:0
         volumes:
             - ${WK_DIR}:/home/developer
@@ -119,7 +116,6 @@ services:
             - SYS_PTRACE
         devices:
             - /dev/dri:/dev/dri
-        container_name: ${PROJECT_NAME}-ide
         user: 0:0
         volumes:
             - /dev/bus/usb:/dev/bus/usb
