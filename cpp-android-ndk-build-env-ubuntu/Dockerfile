@@ -33,7 +33,8 @@ RUN \
   ${ANDROID_HOME}/tools/bin/sdkmanager ${PACKAGES} && \
   yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses && \
   ${ANDROID_HOME}/tools/bin/sdkmanager --list && \
-  chmod 755 $ANDROID_HOME/tools/bin/avdmanager
+  chmod 755 $ANDROID_HOME/tools/bin/avdmanager && \
+  chown -R 1000.1000 /opt/androidSdk
 
   #  ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=${ANDROID_HOME}/android-sdk-packages && Not working anymore!!!
 

@@ -20,8 +20,6 @@ RUN \
   # For debugging, need a ternminal emulator
   xterm \
   && \
-  chown -R 1000.1000 /opt/androidSdk \
-  && \
   apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
 USER 1000:1000
