@@ -1,0 +1,38 @@
+version: "3.6"
+
+services:
+    computer-vision-ide:
+        build:
+          context: .
+          dockerfile: Docker-creator-file
+          args:
+            dockerimage: bojoe/computer-vision-build-env-ubuntu:latest
+        network_mode: "host"
+        privileged: true
+        security_opt:
+          - seccomp=unconfined
+        cap_add:
+          - SYS_PTRACE
+        user: 0:0
+        volumes:
+            - /dev:/dev
+            - ${WK_DIR}:/home/developer
+            - $HOME:/home/$USER
+            - $HOME/.Xauthority:/home/developer/.Xauthority
+            - /tmp:/tmp
+        environment:
+            - DEVENV=ubuntu-build
+            - DEVUSER=developer
+            - PROJECT_NAME=${PROJECT_NAME}
+            - GROUP_ID=${GROUP_ID}
+            - USER_ID=${USER_ID}
+            - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+            - DISPLAY=${DISPLAY}
+            - CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            - CMAKE_TOOLCHAIN_FILE=${CMAKE_CLANG_TOOLCHAIN_FILE}
+            - CMAKE_MAKE_PROGRAM=ninja
+            - HUNTER_ROOT=/home/$USER/.hunter
+            - PROJECT_PATH=/home/developer/${PROJECT_PATH}
+            - BUILD_DIR=${BUILD_DIR}
+    
+    
