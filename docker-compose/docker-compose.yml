@@ -1,28 +1,71 @@
 version: "3.6"
 
 services:
-  cpp-creator-ide:
+  cpp-ide:
     build:
       context: .
       dockerfile: Docker-creator-file
       args:
         dockerimage: bojoe/cpp-build-env-ubuntu:latest
-    container_name: dev-cpp-creator-ide
     network_mode: "host"
     privileged: true
     security_opt:
       - seccomp=unconfined
     cap_add:
       - SYS_PTRACE
-    environment:
-      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
-      - DISPLAY=$DISPLAY
+    user: 0:0
+    devices:
+      - /dev/dri:/dev/dri
     volumes:
       - /dev:/dev
-      - $HOME:/home/developer
+      - ${WK_DIR}:/home/developer
       - $HOME:/home/$USER
+      - $HOME/.Xauthority:/home/developer/.Xauthority
       - /tmp:/tmp
+    environment:
+      - GROUP_ID
+      - USER_ID
+      - SSH_AUTH_SOCK
+      - DISPLAY
+      - DEVUSER=developer
+      - DEVENV=ubuntu-build
+      - HUNTER_ROOT=/home/$USER/.hunter
+      - PROJECT_NAME
+      - BUILD_DIR
 
+  cpp-android-ndk-ide:
+    build:
+      context: .
+        dockerfile: Docker-creator-file
+          args:
+            dockerimage: bojoe/cpp-android-ndk-build-env-ubuntu:latest
+          network_mode: "host"
+          privileged: true
+          security_opt:
+            - seccomp=unconfined
+          cap_add:
+            - SYS_PTRACE
+          user: 0:0
+          devices:
+            - /dev/dri:/dev/dri
+          volumes:
+            - /dev:/dev
+            - ${WK_DIR}:/home/developer
+            - $HOME:/home/$USER
+            - $HOME/.Xauthority:/home/developer/.Xauthority
+            - /tmp:/tmp
+          environment:
+            - GROUP_ID
+            - USER_ID
+            - SSH_AUTH_SOCK
+            - DISPLAY
+            - DEVUSER=developer
+            - DEVENV=ubuntu-build
+            - HUNTER_ROOT=/home/$USER/.hunter
+            - PROJECT_NAME
+            - BUILD_DIR
+          
+    
   cpp-qt-creator-ide:
     build:
       context: .
@@ -30,30 +73,6 @@ services:
       args:
         dockerimage: bojoe/qt5-build-env-ubuntu:latest
     container_name: dev-qt-cpp-creator-ide
-    network_mode: "host"
-    privileged: true
-    security_opt:
-      - seccomp=unconfined
-    cap_add:
-      - SYS_PTRACE
-    devices:
-      - /dev/dri:/dev/dri
-    environment:
-      - SSH_AUTH_SOCK=$SSH_AUTH_SOCK
-      - DISPLAY=$DISPLAY
-    volumes:
-      - /dev/bus/usb:/dev/bus/usb
-      - $HOME:/home/developer
-      - $HOME:/home/$USER
-      - /tmp:/tmp
-
-  cpp-android-ndk-creator-ide:
-    build:
-      context: .
-      dockerfile: Docker-creator-file
-      args:
-        dockerimage: bojoe/cpp-android-ndk-build-env-ubuntu:latest
-    container_name: dev-android-ndk-cpp-creator-ide
     network_mode: "host"
     privileged: true
     security_opt:
