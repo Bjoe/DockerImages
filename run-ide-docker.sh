@@ -21,4 +21,4 @@ START_IDE_SCRIPT=start-ide.sh
 
 export USER_ID=$(id -u ${USER})
 export GROUP_ID=$(id -g ${USER})
-docker-compose -f "$BASE_DIR/docker-combose/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --rm ${COMPOSE_SERVICE} "/home/developer/build-env/setup-build-env.sh" "/home/developer/build-env/${START_IDE_SCRIPT}"
+docker-compose -f "$BASE_DIR/docker-compose/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --rm ${COMPOSE_SERVICE} "/home/developer/build-env/setup-build-env.sh" "/home/developer/build-env/${START_IDE_SCRIPT}"
