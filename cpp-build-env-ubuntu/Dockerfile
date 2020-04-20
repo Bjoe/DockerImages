@@ -6,9 +6,12 @@ RUN \
   DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade && \
   DEBIAN_FRONTEND="noninteractive" \
   apt-get -y install ubuntu-dbgsym-keyring gnupg2 wget sudo && \
-  wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
+  cd /tmp && wget https://apt.llvm.org/llvm.sh && chmod +x /tmp/llvm.sh && \
+  /tmp/llvm.sh
+# /tmp/llvm.sh <version number>
+#  wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 
-COPY llvm.list /etc/apt/sources.list.d/llvm.list
+#COPY llvm.list /etc/apt/sources.list.d/llvm.list
 COPY ddebs.list /etc/apt/sources.list.d/ddebs.list
 COPY configure-alternatives-compilers.sh /tmp
 
@@ -29,17 +32,15 @@ RUN \
       gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
       libstdc++-8-dev \
       libstdc++-9-dev \
-      clang-9 clang-tools-9 clang-tidy-9 \
-      libclang-common-9-dev libclang-9-dev \
-      libclang1-9 \
-      clang-format-9 \
-      python-clang-9 \
-      clangd-9 \
-      lldb-9 lld-9 \
-      libc++-9-dev libc++abi-9-dev \
+      clang-tools-10 clang-tidy-10 \
+      libclang-common-10-dev libclang-10-dev \
+      libclang1-10 \
+      clang-format-10 \
+      python-clang-10 \
+      libc++-10-dev libc++abi-10-dev \
     && \
     /tmp/configure-alternatives-compilers.sh && \
-    rm /tmp/configure-alternatives-compilers.sh && \
+    rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
     groupadd -g 1000 developer && \
