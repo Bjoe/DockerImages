@@ -36,36 +36,35 @@ services:
   cpp-android-ndk-ide:
     build:
       context: .
-        dockerfile: Docker-creator-file
-          args:
-            dockerimage: bojoe/cpp-android-ndk-build-env-ubuntu:latest
-          network_mode: "host"
-          privileged: true
-          security_opt:
-            - seccomp=unconfined
-          cap_add:
-            - SYS_PTRACE
-          user: 0:0
-          devices:
-            - /dev/dri:/dev/dri
-          volumes:
-            - /dev:/dev
-            - ${WK_DIR}:/home/developer
-            - $HOME:/home/$USER
-            - $HOME/.Xauthority:/home/developer/.Xauthority
-            - /tmp:/tmp
-          environment:
-            - GROUP_ID
-            - USER_ID
-            - SSH_AUTH_SOCK
-            - DISPLAY
-            - DEVUSER=developer
-            - DEVENV=ubuntu-build
-            - HUNTER_ROOT=/home/$USER/.hunter
-            - PROJECT_NAME
-            - BUILD_DIR
-          
-    
+      dockerfile: Docker-creator-file
+      args:
+        dockerimage: bojoe/cpp-android-ndk-build-env-ubuntu:latest
+    network_mode: "host"
+    privileged: true
+    security_opt:
+      - seccomp=unconfined
+    cap_add:
+      - SYS_PTRACE
+    user: 0:0
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /dev:/dev
+      - ${WK_DIR}:/home/developer
+      - $HOME:/home/$USER
+      - $HOME/.Xauthority:/home/developer/.Xauthority
+      - /tmp:/tmp
+    environment:
+      - GROUP_ID
+      - USER_ID
+      - SSH_AUTH_SOCK
+      - DISPLAY
+      - DEVUSER=developer
+      - DEVENV=ubuntu-build
+      - HUNTER_ROOT=/home/$USER/.hunter
+      - PROJECT_NAME
+      - BUILD_DIR
+              
   cpp-qt-creator-ide:
     build:
       context: .
