@@ -2,6 +2,7 @@ version: '3.6'
 
 services:
   pjsip-ide:
+    image: pjsip-cpp-ide
     build:
       args:
         dockerimage: bojoe/pjsip-build-env-ubuntu:latest
