@@ -2,5 +2,5 @@ version: "3.6"
 
 services:
     cpp-ide:
-    
+      image: cpp-ide
     
