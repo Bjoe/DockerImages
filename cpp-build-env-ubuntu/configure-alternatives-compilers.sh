@@ -18,8 +18,8 @@ update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 30
 update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 30
 
 # Add Clang versions
-update-alternatives --install /usr/bin/clang clang /usr/bin/clang-9 30
-update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-9 30
+update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 30
+update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-10 30
 
 # Add ICC versions
 #update-alternatives --install /usr/bin/icc icc /opt/intel/compilers_and_libraries/linux/bin/intel64/icc 10

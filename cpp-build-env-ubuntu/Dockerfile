@@ -36,7 +36,7 @@ RUN \
       libclang-common-10-dev libclang-10-dev \
       libclang1-10 \
       clang-format-10 \
-      python-clang-10 \
+      #python-clang-10
       libc++-10-dev libc++abi-10-dev \
     && \
     /tmp/configure-alternatives-compilers.sh && \
