@@ -5,7 +5,7 @@ RUN \
   apt-get update && \
   DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade && \
   DEBIAN_FRONTEND="noninteractive" \
-  apt-get -y install ubuntu-dbgsym-keyring gnupg2 wget sudo && \
+  apt-get -y install ubuntu-dbgsym-keyring gnupg2 wget lsb-release sudo && \
   cd /tmp && wget https://apt.llvm.org/llvm.sh && chmod +x /tmp/llvm.sh && \
   /tmp/llvm.sh
 # /tmp/llvm.sh <version number>
