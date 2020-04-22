@@ -15,6 +15,7 @@ RUN \
     sudo \
     ca-certificates \
     gpgv2 \
+    gpg \
     build-essential \
     make \
     libncurses-dev \
@@ -28,6 +29,7 @@ RUN \
     gcc \
     git \
     file \
+    gdisk \
     expect \
     subversion \
     pkg-config \
