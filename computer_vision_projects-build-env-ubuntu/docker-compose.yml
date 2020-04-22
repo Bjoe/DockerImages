@@ -2,8 +2,9 @@ version: "3.6"
 
 services:
     cpp-ide:
-        build:
-          args:
-            dockerimage: bojoe/computer-vision-build-env-ubuntu:latest
+      image: cv-cpp-ide
+      build:
+        args:
+          dockerimage: bojoe/computer-vision-build-env-ubuntu:latest
     
     

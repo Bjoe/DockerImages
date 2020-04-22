@@ -2,8 +2,9 @@ version: "3.6"
 
 services:
     cpp-ide:
-        build:
-          args:
-            dockerimage: bojoe/genode-build-env-ubuntu:latest
-        volumes:
-          - ${WK_DIR}/tools:/usr/local/genode
+      image: genode-cpp-ide
+      build:
+        args:
+          dockerimage: bojoe/genode-build-env-ubuntu:latest
+      volumes:
+        - ${WK_DIR}/tools:/usr/local/genode
