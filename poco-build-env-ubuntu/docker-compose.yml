@@ -104,6 +104,7 @@ services:
             - mynet
 
     cpp-ide:
+        image: poco-cpp-ide
         build:
             args:
                 dockerimage: bojoe/poco-build-env-ubuntu:latest
