@@ -18,6 +18,7 @@ RUN \
     gpg \
     build-essential \
     make \
+    bear \
     libncurses-dev \
     libexpat1-dev \
     autogen \
@@ -27,6 +28,7 @@ RUN \
     g++ \
     gperf \
     gcc \
+    gdb \
     git \
     file \
     gdisk \
@@ -35,6 +37,7 @@ RUN \
     pkg-config \
     texinfo \
     wget \
+    libncurses5 \
     libxml2-utils \
     byacc \
     tcl \
