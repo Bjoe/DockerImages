@@ -1,0 +1,10 @@
+version: "3.6"
+
+services:
+    cpp-ide:
+      image: copperspice-cpp-ide
+      build:
+        args:
+          dockerimage: bojoe/copperspice-build-env-ubuntu:latest
+    
+    
