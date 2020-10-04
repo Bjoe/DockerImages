@@ -34,7 +34,7 @@ RUN \
       # default Clang
       clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python-clang \
       # Clang 11
-      clang-11 lldb-11 lld-11 \
+      clang-11 lldb-11 lld-11 python3-lldb-11 \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
