@@ -1,0 +1,16 @@
+FROM bojoe/cpp-build-env-ubuntu:latest
+LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
+
+USER root:root
+
+# Install all build deps
+RUN \
+   apt-get update && \
+   DEBIAN_FRONTEND="noninteractive" \
+   apt-get -y upgrade --no-install-recommends && \
+   DEBIAN_FRONTEND="noninteractive" \
+    apt-get -y install --no-install-recommends \
+    # For QML
+    libglvnd-dev mesa-common-dev libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 \
+    # Some dev
+    libssl-dev libpcsclite-dev libudev-dev
