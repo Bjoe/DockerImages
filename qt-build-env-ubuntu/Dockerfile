@@ -14,3 +14,7 @@ RUN \
     libglvnd-dev mesa-common-dev libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 \
     # Some dev
     libssl-dev libpcsclite-dev libudev-dev
+    && \
+    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
+
+USER 1000:1000
