@@ -22,11 +22,10 @@ RUN \
     apt-get -y install --no-install-recommends \ 
       openssh-server python python3 curl p7zip-full \
       pkg-config make automake autoconf libtool bear \
-      ccache cmake git ninja-build   \
+      ccache cmake git ninja-build \
       gcc g++ \
-      gcc-7 g++-7 \
-      gcc-8 g++-8 \
       gcc-9 g++-9 \
+      gcc-10 g++-10 \
       g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
       gcc-avr binutils-avr avr-libc avrdude \
       gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
@@ -44,7 +43,7 @@ RUN \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
     groupadd -g 1000 developer && \
-    useradd -m -c "Build user" -G sudo,video,plugdev -s /bin/bash -u 1000 -g 1000 developer && \
+    useradd -m -c "Build user" -G sudo,video,audio,plugdev -s /bin/bash -u 1000 -g 1000 developer && \
     echo "developer:developer" | chpasswd && \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
     
