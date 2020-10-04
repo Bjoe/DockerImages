@@ -16,9 +16,11 @@ RUN \
   # libnvidia-gl-390:amd64
   libgl1-mesa-dri libgl1:amd64 \
   # Some tools
-  sshfs tmux less vim lnav \
+  sshfs tmux less vim lnav valgrind \
   # For debugging, need a ternminal emulator
   xterm \
+  # For android build
+  openjdk-8-jdk-headless 
   && \
   apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
