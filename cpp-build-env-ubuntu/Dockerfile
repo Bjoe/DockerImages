@@ -31,10 +31,8 @@ RUN \
       gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
       libstdc++-9-dev \
       libstdc++-10-dev \
-      # default Clang
-      clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python-clang \
-      # Clang 11
-      clang-11 lldb-11 lld-11 python3-lldb-11 \
+      # Clang and co
+      clang-11 clang-tools-11 libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 clangd-11 \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
