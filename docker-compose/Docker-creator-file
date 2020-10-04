@@ -20,7 +20,7 @@ RUN \
   # For debugging, need a ternminal emulator
   xterm \
   # For android build
-  openjdk-8-jdk-headless 
+  openjdk-8-jdk-headless \
   && \
   apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
