@@ -29,14 +29,12 @@ RUN \
       g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
       gcc-avr binutils-avr avr-libc avrdude \
       gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
-      libstdc++-8-dev \
       libstdc++-9-dev \
-      clang-tools-10 clang-tidy-10 \
-      libclang-common-10-dev libclang-10-dev \
-      libclang1-10 \
-      clang-format-10 \
-      #python-clang-10
-      libc++-10-dev libc++abi-10-dev \
+      libstdc++-10-dev \
+      # default Clang
+      clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python-clang \
+      # Clang 11
+      clang-11 lldb-11 lld-11 \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
