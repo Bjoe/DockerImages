@@ -13,7 +13,7 @@ RUN \
     sudo ca-certificates curl xxd unzip texinfo libglib2.0-dev autoconf libtool bison libsdl-dev build-essential ccache \
     # For Fuchsia
     texinfo libglib2.0-dev liblz4-tool autoconf libtool libsdl-dev build-essential golang git curl unzip \
-    pkg-config zip g++ zlib1g-dev unzip python python-mako\
+    pkg-config zip g++ zlib1g-dev python \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group

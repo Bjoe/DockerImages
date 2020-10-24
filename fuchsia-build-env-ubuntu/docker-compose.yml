@@ -1,0 +1,8 @@
+version: "3.6"
+
+services:
+    cpp-ide:
+      image: fuchsia-cpp-ide
+      build:
+        args:
+          dockerimage: bojoe/fuchsia-build-env-ubuntu:latest
