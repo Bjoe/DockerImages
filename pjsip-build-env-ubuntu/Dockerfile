@@ -14,6 +14,6 @@ RUN \
     libssl-dev \
     libasound2-dev \
     && \
-    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
+    apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
 USER 1000:1000

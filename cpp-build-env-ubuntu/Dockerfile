@@ -36,7 +36,7 @@ RUN \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
-    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
+    apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
     groupadd -g 1000 developer && \
     useradd -m -c "Build user" -G sudo,video,audio,plugdev -s /bin/bash -u 1000 -g 1000 developer && \

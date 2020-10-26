@@ -11,6 +11,7 @@ RUN \
   DEBIAN_FRONTEND="noninteractive" \
   # To start QtCreator inside the docker
   apt-get -y install libfreetype6 libfontconfig1 libxi6 libxkbcommon-x11-0 libxrender1 libdbus-1-dev \ 
+  libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 \
   #libglvnd-dev
   # Need some GL driver .... from mesa or something else ...
   # libnvidia-gl-390:amd64
