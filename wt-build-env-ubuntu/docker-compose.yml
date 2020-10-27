@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  cpp-ide:
+    image: wt-cpp-ide
+    build:
+      args:
+        dockerimage: bojoe/wt-build-env-ubuntu:latest
