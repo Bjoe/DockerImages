@@ -14,6 +14,8 @@ RUN \
     # For Fuchsia
     texinfo libglib2.0-dev liblz4-tool autoconf libtool libsdl-dev build-essential golang git curl unzip \
     pkg-config zip g++ zlib1g-dev python \
+    # For the emulator
+    x11-xserver-utils iproute2 \
     && \
     apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
