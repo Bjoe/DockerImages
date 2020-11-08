@@ -17,6 +17,7 @@ services:
     user: 0:0
     devices:
       - /dev/dri:/dev/dri
+      - /dev/snd:/dev/snd
     volumes:
       - /media:/media
       - /run:/run
@@ -24,6 +25,7 @@ services:
       - ${WK_DIR}:/home/developer
       - $HOME:/home/$USER
       - $HOME/.Xauthority:/home/developer/.Xauthority
+      - $HOME/.config/pulse/cookie:/home/developer/.config/pulse/cookie
       - /tmp:/tmp
     environment:
       - GROUP_ID
@@ -35,6 +37,9 @@ services:
       - HUNTER_ROOT=/home/$USER/.hunter
       - PROJECT_NAME
       - BUILD_DIR
+      - XDG_RUNTIME_DIR
+      - PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+
 
 #  genode-qt-creator-ide:
 #    build:
