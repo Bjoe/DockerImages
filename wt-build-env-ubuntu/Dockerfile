@@ -10,8 +10,7 @@ RUN \
    apt-get -y upgrade --no-install-recommends && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \
-     doxygen graphviz qt4-dev-tools \
-     qt4-default \
+     doxygen graphviz \
      libsqlite3-dev \
      libboost-dev \
      libboost-thread-dev \
