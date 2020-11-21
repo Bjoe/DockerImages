@@ -1,6 +1,5 @@
 ndk-bundle
 platform-tools
-emulator
 cmake;3.10.2.4988404
 build-tools;30.0.2
 platforms;android-26
