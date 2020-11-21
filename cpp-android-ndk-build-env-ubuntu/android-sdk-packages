@@ -1,4 +1,3 @@
-ndk-bundle
 platform-tools
 cmake;3.10.2.4988404
 build-tools;30.0.2
