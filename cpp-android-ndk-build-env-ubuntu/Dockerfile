@@ -44,8 +44,9 @@ RUN \
 USER 1000:1000
   
 RUN \
-  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64") && \
-  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
+  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64")
+  # && \
+  # (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
 
 #EXPOSE 22
 #
