@@ -41,6 +41,13 @@ RUN \
 
   #  ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=${ANDROID_HOME}/android-sdk-packages && Not working anymore!!!
 
+    # Add user and group
+RUN \
+    groupadd -g 1000 developer && \
+    useradd -m -c "Build user" -G sudo,video,audio,plugdev -s /bin/bash -u 1000 -g 1000 developer && \
+    echo "developer:developer" | chpasswd && \
+    echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+
 USER 1000:1000
   
 RUN \
