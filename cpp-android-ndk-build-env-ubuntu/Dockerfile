@@ -14,10 +14,13 @@ RUN \
     apt-get -y install --no-install-recommends \ 
     curl unzip openjdk-8-jdk \
     && \
-    apt-get -q autoremove && apt-get -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
-    mkdir -p ${ANDROID_HOME} && \
-  curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > android-sdk.zip && \
+    apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
+    mkdir -p ${ANDROID_HOME}
+RUN \
+  curl -L https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip > android-sdk.zip && \
+  curl -L https://dl.google.com/android/repository/android-ndk-r22-beta1-linux-x86_64.zip > android-ndk-beta.zip && \
   unzip -qq android-sdk.zip -d ${ANDROID_HOME} && rm -f android-sdk.zip && \
+  unzip -qq android-ndk-beta.zip -d ${ANDROID_HOME} && rm -f android-ndk-beta.zip && \
   mkdir -p /root/.android/ && touch /root/.android/repositories.cfg &&\
   mkdir -p ${ANDROID_HOME}/licenses
   
@@ -27,12 +30,12 @@ COPY android-sdk-packages ${ANDROID_HOME}
 
 RUN \
   chown -R root.root ${ANDROID_HOME} && \
-  ${ANDROID_HOME}/tools/bin/sdkmanager --update && \
+  ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --update && \
   while read -r package; do PACKAGES="${PACKAGES}${package} "; done < ${ANDROID_HOME}/android-sdk-packages && \
   echo -n "Installing SDK packages ....: ${PACKAGES}" && \
-  ${ANDROID_HOME}/tools/bin/sdkmanager ${PACKAGES} && \
-  yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses && \
-  ${ANDROID_HOME}/tools/bin/sdkmanager --list && \
+  ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} ${PACKAGES} && \
+  yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
+  ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --list && \
   chmod 755 $ANDROID_HOME/tools/bin/avdmanager && \
   chown -R 1000.1000 /opt/androidSdk
 
@@ -41,8 +44,8 @@ RUN \
 USER 1000:1000
   
 RUN \
-  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-24-test -k "system-images;android-24;default;armeabi-v7a") && \
-  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-arm64-24-test -k "system-images;android-24;default;arm64-v8a")
+  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64") && \
+  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
 
 #EXPOSE 22
 #
