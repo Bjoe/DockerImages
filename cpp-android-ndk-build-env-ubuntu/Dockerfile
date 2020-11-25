@@ -4,6 +4,8 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 USER root:root
 
 ENV ANDROID_HOME /opt/androidSdk
+ENV ANDROID_NDK_HOME /opt/androidSdk/ndk/android-ndk-r22-beta1
+ENV PATH="/opt/androidSdk/cmake/3.10.2.4988404/bin:${PATH}"
 
 # Install all build deps
 RUN \
@@ -15,7 +17,7 @@ RUN \
     curl unzip openjdk-8-jdk \
     && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
-    mkdir -p ${ANDROID_HOME}
+    mkdir -p ${ANDROID_HOME}/ndk
 RUN \
   curl -L https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip > android-sdk.zip && \
   curl -L https://dl.google.com/android/repository/android-ndk-r22-beta1-linux-x86_64.zip > android-ndk-beta.zip && \
@@ -49,13 +51,18 @@ RUN \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 USER 1000:1000
-  
+
+COPY docker-entrypoint.sh /home/developer
+
 RUN \
+  chmod +x /home/developer/docker-entrypoint.sh && \
   (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64")
   # && \
   # (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
+
 
 #EXPOSE 22
 #
 #CMD ["/usr/sbin/sshd", "-D"]
 #
+ENTRYPOINT ["/home/developer/docker-entrypoint.sh"] 
