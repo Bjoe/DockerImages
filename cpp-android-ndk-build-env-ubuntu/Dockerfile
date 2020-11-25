@@ -50,12 +50,12 @@ RUN \
     echo "developer:developer" | chpasswd && \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
+COPY docker-entrypoint.sh /home/developer
+RUN chmod +x /home/developer/docker-entrypoint.sh
+
 USER 1000:1000
 
-COPY docker-entrypoint.sh /home/developer
-
 RUN \
-  chmod +x /home/developer/docker-entrypoint.sh && \
   (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64")
   # && \
   # (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
