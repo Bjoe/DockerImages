@@ -17,12 +17,12 @@ RUN \
     curl unzip openjdk-8-jdk \
     && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
-    mkdir -p ${ANDROID_HOME}/ndk
+    mkdir -p ${ANDROID_NDK_HOME}
 RUN \
   curl -L https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip > android-sdk.zip && \
   curl -L https://dl.google.com/android/repository/android-ndk-r22-beta1-linux-x86_64.zip > android-ndk-beta.zip && \
   unzip -qq android-sdk.zip -d ${ANDROID_HOME} && rm -f android-sdk.zip && \
-  unzip -qq android-ndk-beta.zip -d ${ANDROID_HOME} && rm -f android-ndk-beta.zip && \
+  unzip -qq android-ndk-beta.zip -d ${ANDROID_NDK_HOME} && rm -f android-ndk-beta.zip && \
   mkdir -p /root/.android/ && touch /root/.android/repositories.cfg &&\
   mkdir -p ${ANDROID_HOME}/licenses
   
