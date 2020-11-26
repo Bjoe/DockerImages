@@ -12,7 +12,7 @@ ninja --version
 echo "Android NDK version:"
 cat ${ANDROID_NDK_HOME}/source.properties
 echo "Supported Android platforms:"
-ls ${ANDROID_HOME}/platforms/
+ls ${ANDROID_HOME}/platforms
 
 cd $HOME
 
