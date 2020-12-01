@@ -18,4 +18,5 @@ cd $HOME
 
 #set -e # exit on failure
 #set -x # trace for debug
-/bin/bash -e -c $@
+/bin/bash -e -c "$@"
+
