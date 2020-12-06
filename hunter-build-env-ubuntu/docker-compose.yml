@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  cpp-ide:
+    image: hunter-cpp-ide
+    build:
+      args:
+        dockerimage: bojoe/hunter-build-env-ubuntu:latest
