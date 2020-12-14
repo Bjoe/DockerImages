@@ -14,7 +14,7 @@ RUN \
    apt-get -y upgrade --no-install-recommends && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
-    curl unzip openjdk-8-jdk \
+    git sudo curl unzip openjdk-8-jdk \
     && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     mkdir -p ${ANDROID_NDK_HOME}
