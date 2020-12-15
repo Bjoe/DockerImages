@@ -1,5 +1,7 @@
 platform-tools
 cmake;3.10.2.4988404
 build-tools;30.0.2
-platforms;android-26
-system-images;android-26;default;x86_64
+platforms;android-27
+platforms;android-29
+system-images;android-29;default;x86_64
+ndk;22.0.7026061

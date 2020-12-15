@@ -4,7 +4,7 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 USER root:root
 
 ENV ANDROID_HOME /opt/androidSdk
-ENV ANDROID_NDK_HOME /opt/androidSdk/ndk/android-ndk-r22-beta1
+ENV ANDROID_NDK_HOME /opt/androidSdk/ndk/22.0.7026061
 ENV PATH="/opt/androidSdk/cmake/3.10.2.4988404/bin:${PATH}"
 
 # Install all build deps
@@ -18,11 +18,12 @@ RUN \
     && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     mkdir -p ${ANDROID_NDK_HOME}
+
 RUN \
   curl -L https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip > android-sdk.zip && \
-  curl -L https://dl.google.com/android/repository/android-ndk-r22-beta1-linux-x86_64.zip > android-ndk-beta.zip && \
+  #curl -L https://dl.google.com/android/repository/android-ndk-r22-linux-x86_64.zip > android-ndk.zip && \
   unzip -qq android-sdk.zip -d ${ANDROID_HOME} && rm -f android-sdk.zip && \
-  unzip -qq android-ndk-beta.zip -d ${ANDROID_HOME}/ndk && rm -f android-ndk-beta.zip && \
+  #unzip -qq android-ndk.zip -d ${ANDROID_HOME}/ndk && rm -f android-ndk.zip && \
   mkdir -p /root/.android/ && touch /root/.android/repositories.cfg &&\
   mkdir -p ${ANDROID_HOME}/licenses
   
@@ -51,12 +52,14 @@ RUN \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 COPY docker-entrypoint.sh /home/developer
+COPY set-android-env.sh
 RUN chmod +x /home/developer/docker-entrypoint.sh
+RUN chmod +x /home/developer/set-android-env.sh
 
 USER 1000:1000
 
 RUN \
-  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-26-test -k "system-images;android-26;default;x86_64")
+  (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
   # && \
   # (echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n android-29-test -k "system-images;android-29;default;x86_64")
 
