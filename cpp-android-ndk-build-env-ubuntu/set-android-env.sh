@@ -1,5 +1,6 @@
 #!/bin/bash
 
+id
 echo "Android SDK ANDROID_HOME found in ${ANDROID_HOME}"
 echo "Android NDK ANDROID_NDK_HOME found in ${ANDROID_NDK_HOME}"
 
