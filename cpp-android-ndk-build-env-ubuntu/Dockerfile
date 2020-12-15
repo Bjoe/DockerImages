@@ -52,7 +52,7 @@ RUN \
     echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 COPY docker-entrypoint.sh /home/developer
-COPY set-android-env.sh
+COPY set-android-env.sh /home/developer
 RUN chmod +x /home/developer/docker-entrypoint.sh
 RUN chmod +x /home/developer/set-android-env.sh
 
