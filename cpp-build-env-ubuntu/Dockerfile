@@ -1,4 +1,5 @@
-FROM ubuntu:rolling
+FROM ubuntu:20.04
+#FROM ubuntu:rolling <- llvm.sh/clang has not yet the latest ubuntu
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
