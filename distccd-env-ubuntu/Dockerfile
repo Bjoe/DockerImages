@@ -6,12 +6,15 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
   apt-get update && \
-  DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade && \
+  DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade \
+  && \
   DEBIAN_FRONTEND="noninteractive" \
-  apt-get -y install distcc gnupg2 curl wget software-properties-common lsb-release sudo && \
+  apt-get -y install gnupg2 curl wget apt-utils software-properties-common lsb-release sudo && \
   cd /tmp && wget https://apt.llvm.org/llvm.sh && chmod +x /tmp/llvm.sh && \
-  /tmp/llvm.sh && \
-  gcc g++ \
+  /tmp/llvm.sh \
+  && \
+  DEBIAN_FRONTEND="noninteractive" \
+  apt-get -y install gcc g++ \
   gcc-9 g++-9 \
   gcc-10 g++-10 \
   g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
