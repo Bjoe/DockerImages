@@ -22,7 +22,7 @@ RUN \
     apt-get -y install --no-install-recommends \ 
       openssh-server python python3 curl p7zip-full \
       pkg-config make automake autoconf libtool bear \
-      ccache cmake git ninja-build \
+      ccache distcc distcc-pump cmake git ninja-build \
       gcc g++ \
       gcc-9 g++-9 \
       gcc-10 g++-10 \
