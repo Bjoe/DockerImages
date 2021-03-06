@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  cpp-ide:
+    image: dev-nasa-cpp-ide
+    build:
+      args:
+        dockerimage: bojoe/qt-build-env-ubuntu:latest
