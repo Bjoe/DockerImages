@@ -32,7 +32,7 @@ RUN \
       gdb gdbserver cgdb gdb-avr \
       libstdc++-10-dev \
       # Clang and co
-      clang-format clang-tidy clang-tools libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libclang-common-dev \
+      clang-format-12 clang-tidy-12 clang-tools-12 libc++-12-dev libc++1-12 libc++abi-12-dev libc++abi1-12 libclang-12-dev libclang1-12 liblldb-12-dev libclang-common-12-dev \
       # static analyzer
       cppcheck iwyu \
     && \
