@@ -32,9 +32,9 @@ RUN \
       gdb gdbserver cgdb gdb-avr \
       libstdc++-10-dev \
       # Clang and co
-      clang-11 clang-tools-11 libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 clangd-11 \
+      clang-format clang-tidy clang-tools libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libclang-common-dev \
       # static analyzer
-      cppcheck clang-tidy-11 iwyu \
+      cppcheck iwyu \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \

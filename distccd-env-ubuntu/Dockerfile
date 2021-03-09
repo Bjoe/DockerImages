@@ -1,5 +1,4 @@
-FROM ubuntu:20.04
-#FROM ubuntu:rolling <- llvm.sh/clang has not yet the latest ubuntu
+FROM ubuntu:rolling
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 # See also idea from https://developers.redhat.com/blog/2019/05/15/2-tips-to-make-your-c-projects-compile-3-times-faster/
@@ -15,11 +14,10 @@ RUN \
   && \
   DEBIAN_FRONTEND="noninteractive" \
   apt-get -y install gcc g++ \
-  gcc-9 g++-9 \
   gcc-10 g++-10 \
   g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
   gcc-avr \
-  clang-11 \
+  clang \
   distcc \
   && \
   apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
