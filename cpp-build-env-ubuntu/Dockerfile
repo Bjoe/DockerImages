@@ -2,6 +2,8 @@ FROM ubuntu:20.04
 #FROM ubuntu:rolling <- llvm.sh/clang has not yet the latest ubuntu
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
+ENV DEVUSER developer
+
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND="noninteractive" apt-get -y upgrade && \
@@ -39,10 +41,10 @@ RUN \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin && \
     # Add user and group
-    groupadd -g 1000 developer && \
-    useradd -m -c "Build user" -G sudo,video,audio,plugdev -s /bin/bash -u 1000 -g 1000 developer && \
-    echo "developer:developer" | chpasswd && \
-    echo "%developer     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+    groupadd -g 1000 ${DEVUSER} && \
+    useradd -m -c "Build user" -G sudo,video,audio,plugdev -s /bin/bash -u 1000 -g 1000 ${DEVUSER} && \
+    echo "${DEVUSER}:${DEVUSER}" | chpasswd && \
+    echo "%${DEVUSER}     ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
     
 #EXPOSE 22
 #
