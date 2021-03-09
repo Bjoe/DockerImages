@@ -1,5 +1,4 @@
-FROM ubuntu:20.04
-#FROM ubuntu:rolling <- llvm.sh/clang has not yet the latest ubuntu
+FROM ubuntu:rolling
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 RUN \
@@ -25,15 +24,15 @@ RUN \
       pkg-config make automake autoconf libtool bear \
       ccache distcc distcc-pump cmake git ninja-build \
       gcc g++ \
-      gcc-9 g++-9 \
       gcc-10 g++-10 \
       g++-arm-linux-gnueabi g++-arm-linux-gnueabihf \
       gcc-avr binutils-avr avr-libc avrdude \
-      gdb gdbserver libcc1-0 cgdb gdb-avr lsb-release \
-      libstdc++-9-dev \
+      gdb gdbserver cgdb gdb-avr \
       libstdc++-10-dev \
       # Clang and co
       clang-11 clang-tools-11 libclang-common-11-dev libclang-11-dev libclang1-11 clang-format-11 clangd-11 \
+      # static analyzer
+      cppcheck clang-tidy-11 iwyu \
     && \
     /tmp/configure-alternatives-compilers.sh && \
     rm /tmp/configure-alternatives-compilers.sh /tmp/llvm.sh && \
