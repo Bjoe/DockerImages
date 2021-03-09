@@ -13,7 +13,7 @@ RUN \
     # For QML
     libglvnd-dev mesa-common-dev \
     # Some dev
-    libssl-dev libpcsclite-dev libudev-dev \
+    libssl-dev libpcsclite-dev libudev-dev libglu1-mesa-dev \
     && \
     apt-get -y -q autoremove && apt-get -y -q clean && rm -rf /var/lib/apt/lists/* &&  rm -f /var/cache/apt/*.bin
 
