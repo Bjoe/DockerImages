@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM ubuntu:groovy
 LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 # See also idea from https://developers.redhat.com/blog/2019/05/15/2-tips-to-make-your-c-projects-compile-3-times-faster/
