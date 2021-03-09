@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  cpp-ide:
+    image: botan-cpp-ide
+    build:
+      args:
+        dockerimage: bojoe/botan-build-env-ubuntu:latest
