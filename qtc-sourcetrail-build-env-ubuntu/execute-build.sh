@@ -34,6 +34,6 @@ else
     echo "Neither qmake nor qmake-qt5 found"
     /bin/bash
 fi
-$QMAKE qtc-sourcetrail.pro -r "QTC_SOURCE=$QTCREATOR_DIR/dev" "QTC_BUILD=$QTCREATOR_DIR/lib/qtcreator" "LIBS+=-L$QTCREATOR_DIR/lib/qtcreator" "OUTPUT_PATH=$QTCREATOR_DIR/lib/qtcreator/plugins/"
+$QMAKE qtc-sourcetrail.pro -r "QTC_SOURCE=$QTCREATOR_DIR/dev/include" "QTC_BUILD=$QTCREATOR_DIR/lib/qtcreator" "LIBS+=-L$QTCREATOR_DIR/lib/qtcreator" "OUTPUT_PATH=$QTCREATOR_DIR/lib/qtcreator/plugins/"
 make clean && make
 /bin/bash
