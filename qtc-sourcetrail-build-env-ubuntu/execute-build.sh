@@ -1,13 +1,26 @@
 
 #QTCREATOR_VERSION=4.13/4.13.0
 QTCREATOR_DIR=$HOME/opt/Qt/Tools/QtCreator
-export PATH="$QTCREATOR_DIR/opt/Qt/5.15.0/gcc_64/bin:$PATH"
+
+QTPATH="$HOME/opt/Qt/5.15.2/gcc_64/bin"
+if [ ! -d ${QTPATH} ]; then
+    echo "QTPATH=${QTPATH} doesn't exists. Please fix it in the $0 script"
+    exit 1
+fi
+
+export PATH=":$PATH"
 
 
 cd $HOME/Development
 
-git clone https://github.com/CoatiSoftware/qtc-sourcetrail.git
-cd qtc-sourcetrail
+if [ -d qtc-sourcetrail ]; then
+    cd qtc-sourcetrail
+    git pull
+else
+    git clone https://github.com/CoatiSoftware/qtc-sourcetrail.git
+    cd qtc-sourcetrail
+fi
+    
 #if [ ! -d "qt-src" ]; then
 #    curl -fsSL "http://download.qt.io/official_releases/qtcreator/$QTCREATOR_VERSION/installer_source/linux_gcc_64_rhel72/qtcreator_dev.7z" -o qt-dev.7z
 #    7z x -y qt-dev.7z -o"qt-src"
