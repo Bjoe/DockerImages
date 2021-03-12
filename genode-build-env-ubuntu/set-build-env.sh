@@ -1,4 +1,4 @@
 IDE_SCRIPT=run-ide-docker.sh
 BUILD_SCRIPT=build.sh
-export COMPOSE_SERVICE_IDE="cpp-ide"
-export DOCKER_CONTAINER_IDE="genode-cpp-ide"
+export COMPOSE_SERVICE_NAME="cpp-ide"
+export DOCKER_CONTAINER_NAME="genode-cpp-ide"

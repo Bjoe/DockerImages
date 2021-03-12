@@ -15,16 +15,16 @@ if [ ! -d "$BUILD_DIR" ]; then
     mkdir -p "$BUILD_DIR"
 fi
 
-if [ "$(docker ps -q -f name=$DOCKER_CONTAINER_IDE)" ]; then
+if [ "$(docker ps -q -f name=$DOCKER_CONTAINER_NAME)" ]; then
   set -x
-  docker attach $DOCKER_CONTAINER_IDE
-elif [ "$(docker ps -aq -f name=$DOCKER_CONTAINER_IDE)" ]; then
+  docker attach $DOCKER_CONTAINER_NAME
+elif [ "$(docker ps -aq -f name=$DOCKER_CONTAINER_NAME)" ]; then
   set -x
-  docker start -ai $DOCKER_CONTAINER_IDE
+  docker start -ai $DOCKER_CONTAINER_NAME
 else
   START_IDE_SCRIPT=start-ide.sh
   export USER_ID=$(id -u ${USER})
   export GROUP_ID=$(id -g ${USER})
   set -x
-  docker-compose -f "$BASE_DIR/docker-compose/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --name ${DOCKER_CONTAINER_IDE} ${COMPOSE_SERVICE_IDE} "/home/developer/build-env/setup-build-env.sh" "/home/developer/build-env/${START_IDE_SCRIPT}"
+  docker-compose -f "$BASE_DIR/docker-compose/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --name ${DOCKER_CONTAINER_NAME} ${COMPOSE_SERVICE_NAME} "/home/developer/build-env/setup-build-env.sh" "/home/developer/build-env/${START_IDE_SCRIPT}"
 fi
