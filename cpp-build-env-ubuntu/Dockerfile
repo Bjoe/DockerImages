@@ -19,6 +19,9 @@ COPY configure-alternatives-compilers.sh /tmp
 
 # Install all build deps
 RUN \
+   DEBIAN_FRONTEND="noninteractive" \
+   apt install ubuntu-dbgsym-keyring && \
+   DEBIAN_FRONTEND="noninteractive" \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
     apt-get -y install --no-install-recommends \ 
