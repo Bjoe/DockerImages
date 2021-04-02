@@ -28,7 +28,7 @@ RUN \
       libpcre3-dev \
       libpcre3-dbg \
       zlib1g-dev \
-      zlib1g-dbg \
+      zlib1g-dbgsym \
       libsqlite3-dev \
       # libsqlite3-0-dbgsym ?
       && \
