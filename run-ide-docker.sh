@@ -15,10 +15,10 @@ if [ ! -d "$BUILD_DIR" ]; then
     mkdir -p "$BUILD_DIR"
 fi
 
-if [ "$(docker ps -q -f name=$DOCKER_CONTAINER_NAME)" ]; then
+if [ "$(docker ps -q -f name=\^$DOCKER_CONTAINER_NAME\$)" ]; then
   set -x
   docker attach $DOCKER_CONTAINER_NAME
-elif [ "$(docker ps -aq -f name=$DOCKER_CONTAINER_NAME)" ]; then
+elif [ "$(docker ps -aq -f name=\^$DOCKER_CONTAINER_NAME\$)" ]; then
   set -x
   docker start -ai $DOCKER_CONTAINER_NAME
 else
