@@ -3,8 +3,6 @@ LABEL maintainer="Joerg-Christian Boehme <joerg@chaosdorf.de>"
 
 USER root:root
 
-COPY requirements.txt /tmp/requirements.txt
-
 # Install all build deps
 RUN \
    apt-get update && \
