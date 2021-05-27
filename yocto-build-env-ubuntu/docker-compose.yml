@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  cpp-ide:
+    image: yocto-cpp-ide
+    build:
+      args:
+        dockerimage: bojoe/yocto-build-env-ubuntu:latest
