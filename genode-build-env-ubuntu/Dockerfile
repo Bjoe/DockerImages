@@ -14,7 +14,6 @@ RUN \
     apt-get -y install --no-install-recommends \
     sudo \
     ca-certificates \
-    gpgv2 \
     gpg \
     build-essential \
     make \
