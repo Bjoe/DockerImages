@@ -7,6 +7,7 @@ USER root:root
 
 # Install all build deps
 RUN \
+   apt-get install gpg \
    apt-get update && \
    DEBIAN_FRONTEND="noninteractive" \
    apt-get -y upgrade --no-install-recommends && \
@@ -14,7 +15,6 @@ RUN \
     apt-get -y install --no-install-recommends \
     sudo \
     ca-certificates \
-    gpg \
     build-essential \
     make \
     bear \
