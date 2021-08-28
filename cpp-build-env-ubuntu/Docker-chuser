@@ -1,0 +1,26 @@
+ARG dockerimage
+
+FROM $dockerimage
+
+USER 0
+
+# As arguments receive the user ID and group ID for the current user. 
+ARG userid
+ARG groupid
+ARG devuser
+# Modify group "default" to use group ID $groupid.
+# Modify user "default" to group "default".
+RUN groupmod -g $groupid $devuser && \
+# Due to a bug/problem and lastlog sparse file in Docker see https://github.com/moby/moby/issues/5419 we need to remove /var/log/lastlog /var/log/faillog !
+        rm /var/log/lastlog /var/log/faillog && \
+        ln -s /dev/null /var/log/lastlog && \
+        ln -s /dev/null /var/log/faillog && \
+        usermod -u $userid -g $groupid $devuser && \
+        rm /var/log/lastlog /var/log/faillog && \
+        touch /var/log/lastlog && \
+        touch /var/log/faillog
+        #&& \
+        #echo "Change permission in /opt. This can take around 10 minutes" && \
+        #chown $userid:$groupid -R /opt/*
+
+USER $userid:$groupid
