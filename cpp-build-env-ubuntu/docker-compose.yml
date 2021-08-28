@@ -7,9 +7,9 @@ services:
       dockerfile: Docker-chuser
       args:
         dockerimage: bojoe/cpp-build-env-ubuntu:latest
-         userid: ${USER_ID}
-         groupid: ${GROUP_ID}
-         devuser: developer
+        userid: ${USER_ID}
+        groupid: ${GROUP_ID}
+        devuser: developer
     image: cpp-build-env-ubuntu
     network_mode: "host"
     privileged: true
