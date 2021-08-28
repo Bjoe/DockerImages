@@ -22,9 +22,8 @@ elif [ "$(docker ps -aq -f name=\^$DOCKER_CONTAINER_NAME\$)" ]; then
   set -x
   docker start -ai $DOCKER_CONTAINER_NAME
 else
-  START_SCRIPT=start-tmux.sh
   export USER_ID=$(id -u ${USER})
   export GROUP_ID=$(id -g ${USER})
   set -x
-  docker-compose -f "$BASE_DIR/cpp-build-env-ubuntu/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --name ${DOCKER_CONTAINER_NAME} ${COMPOSE_SERVICE_NAME} "/home/developer/build-env/${START_SCRIPT}"
+  docker-compose -f "$BASE_DIR/cpp-build-env-ubuntu/docker-compose.yml" -f "$BASE_DIR/$PROJECT_SETTINGS_DIR/docker-compose.yml" run --name ${DOCKER_CONTAINER_NAME} ${COMPOSE_SERVICE_NAME} "/bin/bash"
 fi
