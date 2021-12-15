@@ -1,0 +1,8 @@
+version: "3.6"
+
+services:
+    cpp-ide:
+      image: aosp-cpp-ide
+      build:
+        args:
+          dockerimage: bojoe/aosp-build-env-ubuntu:latest
